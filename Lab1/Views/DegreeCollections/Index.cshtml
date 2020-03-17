@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Lab1.DegreeCollection>
+
+@{
+    ViewData["Title"] = "DegreeCollection";
+}
+
+<h1>Науковий ступінь</h1>
+
+<p>
+    <a asp-action="Create" style="text-decoration:none; color:#0ce7e7; ">Додати новий</a>
+</p>
+<table class="table">
+    <thead>
+        <tr style="font-size:120%; ">
+            <th>
+                @Html.DisplayNameFor(model => model.DegreeName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="font-size:120%; ">
+                <td>
+                    @Html.DisplayFor(modelItem => item.DegreeName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" style="text-decoration:none;">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none;">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" style="text-decoration:none;">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="container">
+    <div id="chart1">
+
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            $.get('/api/Charts/JsonData', function (jsonData) {
+                data = google.visualization.arrayToDataTable(jsonData, false);
+                var options = {
+                    title: 'Співвідношення кількості науковців та наукових ступеней',
+                    width: 500,
+                    height: 400
+                };
+                chart = new google.visualization.PieChart(document.getElementById('chart1'));
+
+                chart.draw(data, options);
+            })
+        }
+    </script>
+}

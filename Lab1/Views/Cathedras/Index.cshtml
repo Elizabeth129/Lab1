@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Lab1.Cathedra>
+
+@{
+    ViewData["Title"] = "Кафедра за факультетом";
+}
+
+<h1>Кафедри на факультеті @ViewBag.FacultyName </h1>
+
+<p>
+   @Html.ActionLink("Додати нову кафедру", "Create","Cathedras", new { facultyId = @ViewBag.FacultyId}, new { style="text-decoration:none; color:#0ce7e7;"})
+</p>
+<table class="table">
+    <thead>
+        <tr style="font-size:120%; ">
+            <th>
+                @Html.DisplayNameFor(model => model.CathedraName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faculty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr style="font-size:120%; ">
+            <td>
+                @Html.DisplayFor(modelItem => item.CathedraName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Faculty.FacultyName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit","Cathedras", new { id = @item.Id, facultyId = @ViewBag.FacultyId }, new { style="text-decoration:none"})|
+                <a asp-action="Details" asp-route-id="@item.Id"  style="text-decoration:none;">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"  style="text-decoration:none;">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

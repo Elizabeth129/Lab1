@@ -1,0 +1,44 @@
+﻿@model Lab1.PlaceOfWork
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Редагувати</h1>
+
+<h4>Місце роботи</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="CathedraId" class="control-label"></label>
+                <select asp-for="CathedraId" class="form-control" asp-items="ViewBag.CathedraId"></select>
+                <span asp-validation-for="CathedraId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfStartWork" class="control-label"></label>
+                <input asp-for="DateOfStartWork" class="form-control" />
+                <span asp-validation-for="DateOfStartWork" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfEndWork" class="control-label"></label>
+                <input asp-for="DateOfEndWork" class="form-control" />
+                <span asp-validation-for="DateOfEndWork" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Зберегти" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" style="text-decoration:none; color:#0ce7e7;">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Lab1.Publication>
+
+@{
+    ViewData["Title"] = "Публікації науковця";
+}
+
+<h1>Публікації науковця @ViewBag.ProfessorName @ViewBag.ProfessorSurname</h1>
+
+<p>
+   @Html.ActionLink("Додати нову публікацію", "Create", new { professorId = @ViewBag.ProfessorId})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamePublication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PageAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publishing)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamePublication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publishing.PublishingName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

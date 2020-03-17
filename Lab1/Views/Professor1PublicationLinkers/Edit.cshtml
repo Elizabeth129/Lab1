@@ -1,0 +1,39 @@
+﻿@model Lab1.ProfessorPublicationLinker
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+    <h1>Редагувати</h1>
+
+<h4>Науковці публікації</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ProfessorId" class="control-label"></label>
+                <select asp-for="ProfessorId" class="form-control" asp-items="ViewBag.ProfessorId"></select>
+                <span asp-validation-for="ProfessorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublicationId" class="control-label"></label>
+                <select asp-for="PublicationId" class="form-control" asp-items="ViewBag.PublicationId"></select>
+                <span asp-validation-for="PublicationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Зберегти" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" style="text-decoration:none; color:#0ce7e7;">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

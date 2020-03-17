@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Lab1.FacultyCollection>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Факультети</h1>
+
+<p>
+    <a asp-action="Create" style="text-decoration:none; color:#0ce7e7;">Додати новий</a>
+</p>
+<table class="table">
+    <thead>
+        <tr  style="font-size:120%; ">
+            <th>
+                @Html.DisplayNameFor(model => model.FacultyName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr  style="font-size:120%; ">
+            <td>
+                @Html.DisplayFor(modelItem => item.FacultyName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" style="text-decoration:none;">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none;">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" style="text-decoration:none;">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

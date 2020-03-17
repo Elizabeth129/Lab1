@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Lab1.PlaceOfWork>
+
+@{
+    ViewData["Title"] = "Місця роботи по кафедрам";
+}
+
+<h1>Місця роботи на кафедрі @ViewBag.CathedraName</h1>
+
+<p>
+    @Html.ActionLink("Додати нове місце роботи", "Create", "PlaceOfWorks", new {cathedraId = @ViewBag.CathedraId}, new { style="text-decoration:none; color:#0ce7e7;"} )
+</p>
+<table class="table">
+    <thead>
+        <tr style="font-size:120%; ">
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfStartWork)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfEndWork)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cathedra)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr style="font-size:120%; ">
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfStartWork)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfEndWork)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cathedra.CathedraName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "PlaceOfWorks", new { id = @item.Id, cathedraId = @ViewBag.CathedraId }, new { style = "text-decoration:none" }) |
+                <!-- <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none;">Details</a> |-->
+                <a asp-action="Delete" asp-route-id="@item.Id" style="text-decoration:none;">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

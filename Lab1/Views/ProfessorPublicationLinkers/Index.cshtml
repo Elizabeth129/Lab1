@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Lab1.ProfessorPublicationLinker>
+
+@{
+    ViewData["Title"] = "Публікації науковця";
+}
+
+    <h1>Публікації науковця @ViewBag.ProfessorName @ViewBag.ProfessorSurname</h1>
+
+    <p>
+        @Html.ActionLink("Додати нову публікацію", "Create","ProfessorPublicationLinkers", new { professorId = @ViewBag.ProfessorId }, new { style="text-decoration:none; color:#0ce7e7;"})
+    </p>
+<table class="table">
+    <thead>
+        <tr style="font-size:120%; ">
+            <th>
+                @Html.DisplayNameFor(model => model.Publication.NamePublication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publication.Publishing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publication.PageAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publication.Version)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr style="font-size:120%; ">
+            <td>
+                @Html.DisplayFor(modelItem => item.Publication.NamePublication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publication.Publishing.PublishingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publication.PageAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publication.Version)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "ProfessorPublicationLinkers", new { id = @item.Id, professorId = @ViewBag.ProfessorId }, new { style = "text-decoration:none" }) |
+                <!--<a asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none;">Details</a> |-->
+                <a asp-action="Delete" asp-route-id="@item.Id" style="text-decoration:none;">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
