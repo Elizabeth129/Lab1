@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\2 курс 2 сем\\ІСТП\\Lab1\\Lab1\\Lab1.csproj": {}
+    "D:\\Lab1\\Lab1\\Lab1.csproj": {}
   },
   "projects": {
-    "D:\\2 курс 2 сем\\ІСТП\\Lab1\\Lab1\\Lab1.csproj": {
+    "D:\\Lab1\\Lab1\\Lab1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\2 курс 2 сем\\ІСТП\\Lab1\\Lab1\\Lab1.csproj",
+        "projectUniqueName": "D:\\Lab1\\Lab1\\Lab1.csproj",
         "projectName": "Lab1",
-        "projectPath": "D:\\2 курс 2 сем\\ІСТП\\Lab1\\Lab1\\Lab1.csproj",
+        "projectPath": "D:\\Lab1\\Lab1\\Lab1.csproj",
         "packagesPath": "C:\\Users\\ЛИЗА\\.nuget\\packages\\",
-        "outputPath": "D:\\2 курс 2 сем\\ІСТП\\Lab1\\Lab1\\obj\\",
+        "outputPath": "D:\\Lab1\\Lab1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.94.2, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

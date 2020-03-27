@@ -5,7 +5,24 @@
 }
 
 <h1>Науковий ступінь</h1>
+<div>
+    <h3>Оберіть exel-файл для заватаження</h3>
+    @using (Html.BeginForm("Import", "DegreeCollections", FormMethod.Post, new { enctype = "multipart/form-data", id = "frm-excel" }))
+    {
+        <div>
+            Завантажте Excel-файл:
+            <input type="file" name="fileExcel" id="fileExcel" />
+            <div>
+                <input type="submit" value="Завантажити" />
+            </div>
+        </div>
+    }
+</div>
 
+<div>
+    <h3>Завантаження інформації в файл</h3>
+    <a asp-action="Export" style="text-decoration:none; color:#0ce7e7;">Завантажити</a>
+</div>
 <p>
     <a asp-action="Create" style="text-decoration:none; color:#0ce7e7; ">Додати новий</a>
 </p>
