@@ -189,7 +189,6 @@ namespace Lab1.Controllers
                                         else
 
                                         {
-
                                             _context.Professor.Add(professor);
                                         }
 
@@ -219,7 +218,22 @@ namespace Lab1.Controllers
                                             ProfessorPublicationLinker pp = new ProfessorPublicationLinker();
                                             pp.Professor = professor;
                                             pp.Publication = publication;
-                                            _context.ProfessorPublicationLinker.Add(pp);
+
+                                            var ppp = (from prof in _context.ProfessorPublicationLinker
+                                                      where (prof.Professor == professor && prof.Publication == publication)
+                                                      select prof).ToList();
+
+                                            if (ppp.Count > 0)
+                                            {
+                                                pp = ppp[0];
+                                            }
+                                            else
+
+                                            {
+                                                _context.ProfessorPublicationLinker.Add(pp);
+                                            }
+
+                                            
                                             i += 4;
                                         }
                                     }
