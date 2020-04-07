@@ -18,15 +18,19 @@ namespace Lab1.ViewModel
         public int Year { get; set; }
 
         [Required]
+        [Display(Name = "Науковий ступінь")]
+        public string Rank { get; set; }
+
+        [Required]
         [Display(Name = "Персональний номер")]
         [DataType(DataType.Password)]
-        public int PersonalNumber { get; set; }
+        public string Password { get; set; }
 
         [Required]
         [Compare("PersonalNumber", ErrorMessage = "Персональні номери не співпадають")]
         [Display(Name = "Підтвердження персонального номера")]
         [DataType(DataType.Password)]
-        public int PersonalNumberConfirm { get; set; }
+        public string PasswordConfirm { get; set; }
 
     }
 }
