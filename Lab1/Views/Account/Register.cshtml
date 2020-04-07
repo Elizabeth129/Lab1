@@ -1,0 +1,29 @@
+﻿@model Lab1.ViewModel.RegisterViewModel
+<h2>Реєстрація нового користувача</h2>
+<form method="post" asp-controller="Account" asp-action="Register">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="Year"></label><br />
+        <input asp-for="Year" />
+        <span asp-validation-for="Year"></span>
+    </div>
+    <div>
+        <label asp-for="PersonalNumber"></label><br />
+        <input asp-for="PersonalNumber" />
+        <span asp-validation-for="PersonalNumber"></span>
+    </div>
+    <div>
+        <label asp-for="PersonalNumberConfirm"></label><br />
+        <input asp-for="PersonalNumberConfirm" />
+        <span asp-validation-for="PersonalNumberConfirm"></span>
+    </div>
+    <div>
+        <input type="submit" value="Реєстрація" />
+    </div>
+</form>
+

@@ -429,4 +429,10 @@ D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard1.3\System.Dat
 D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll
 D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Drawing.Common.dll
 D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll
+D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 D:\Lab1\Lab1\obj\Debug\netcoreapp3.1\Lab1.MvcApplicationPartsAssemblyInfo.cache
+D:\Lab1\Lab1\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
