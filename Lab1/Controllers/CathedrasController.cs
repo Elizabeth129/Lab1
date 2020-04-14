@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Lab1;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Lab1.Controllers
 {
@@ -60,6 +61,7 @@ namespace Lab1.Controllers
         }
 
         // GET: Cathedras/Create
+        [Authorize(Roles ="admin")]
         public IActionResult Create(int facultyId)
         {
             // ViewData["FacultyId"] = new SelectList(_context.FacultyCollection, "Id", "FacultyName");
@@ -73,6 +75,7 @@ namespace Lab1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create(int facultyId, [Bind("Id,FacultyId,CathedraName")] Cathedra cathedra)
         {
             cathedra.FacultyId = facultyId;
@@ -89,6 +92,7 @@ namespace Lab1.Controllers
         }
 
         // GET: Cathedras/Edit/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int? id, int? facultyId)
         {
             ViewBag.FacultyId = facultyId;
@@ -111,6 +115,7 @@ namespace Lab1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id, int facultyId, [Bind("Id,CathedraName")] Cathedra cathedra)
         {
             cathedra.FacultyId = facultyId;
@@ -145,6 +150,7 @@ namespace Lab1.Controllers
         }
 
         // GET: Cathedras/Delete/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -166,6 +172,7 @@ namespace Lab1.Controllers
         // POST: Cathedras/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var cathedra = await _context.Cathedra.FindAsync(id);

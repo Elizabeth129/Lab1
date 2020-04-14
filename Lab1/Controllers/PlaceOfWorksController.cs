@@ -136,6 +136,28 @@ namespace Lab1.Controllers
 
             if (ModelState.IsValid)
             {
+                DateTime time = DateTime.Now;
+                DateTime time1 = placeOfWork.DateOfStartWork;
+                DateTime time2 = placeOfWork.DateOfEndWork.Value;
+
+                if (DateTime.Compare(time, time1) <= 0)
+                {
+                    ViewData["CathedraId"] = cathedraId;
+                    ModelState.AddModelError("DateOfStartWork", "DateOfStartWork error");
+                    return View(placeOfWork);
+                }
+                if (DateTime.Compare(time, time2) <= 0)
+                {
+                    ViewData["CathedraId"] = cathedraId;
+                    ModelState.AddModelError("DateOfEndWork", "DateOfEndWork error");
+                    return View(placeOfWork);
+                }
+                if (DateTime.Compare(time2, time1) <= 0)
+                {
+                    ViewData["CathedraId"] = cathedraId;
+                    ModelState.AddModelError("DateOfEndWork", "DateOfEndWork error");
+                    return View(placeOfWork);
+                }
                 try
                 {
                     _context.Update(placeOfWork);

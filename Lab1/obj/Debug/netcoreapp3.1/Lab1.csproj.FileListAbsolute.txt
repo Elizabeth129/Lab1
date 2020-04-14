@@ -436,3 +436,7 @@ D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 D:\Lab1\Lab1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 D:\Lab1\Lab1\obj\Debug\netcoreapp3.1\Lab1.MvcApplicationPartsAssemblyInfo.cache
 D:\Lab1\Lab1\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+D:\Lab1\Lab1\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+D:\Lab1\Lab1\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
+D:\Lab1\Lab1\obj\Debug\netcoreapp3.1\Razor\Views\Roles\UserList.cshtml.g.cs
+D:\Lab1\Lab1\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs

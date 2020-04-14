@@ -22,13 +22,13 @@ namespace Lab1.ViewModel
         public string Rank { get; set; }
 
         [Required]
-        [Display(Name = "Персональний номер")]
+        [Display(Name = "Пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required]
-        [Compare("PersonalNumber", ErrorMessage = "Персональні номери не співпадають")]
-        [Display(Name = "Підтвердження персонального номера")]
+        [Compare("Password", ErrorMessage = "Паролі не співпадають")]
+        [Display(Name = "Підтвердження пароля")]
         [DataType(DataType.Password)]
         public string PasswordConfirm { get; set; }
 
