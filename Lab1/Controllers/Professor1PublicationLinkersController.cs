@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Lab1;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Lab1.Controllers
 {
@@ -49,6 +50,7 @@ namespace Lab1.Controllers
         }
 
         // GET: Professor1PublicationLinkers/Create
+        [Authorize(Roles = "admin")]
         public IActionResult Create(int publicationnId)
         {
             ViewBag.PublicationnId = publicationnId;
@@ -63,6 +65,7 @@ namespace Lab1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create( int publicationnId, [Bind("Id,ProfessorId,PublicationId")] ProfessorPublicationLinker professorPublicationLinker)
         {
             professorPublicationLinker.PublicationId = publicationnId;
@@ -85,6 +88,7 @@ namespace Lab1.Controllers
         }
 
         // GET: Professor1PublicationLinkers/Edit/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int? id, int? publicationId)
         {
             ViewBag.PublicationnId = publicationId;
@@ -108,6 +112,7 @@ namespace Lab1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id,int publicationId, [Bind("Id,ProfessorId")] ProfessorPublicationLinker professorPublicationLinker)
         {
             professorPublicationLinker.PublicationId = publicationId;
@@ -150,6 +155,7 @@ namespace Lab1.Controllers
         }
 
         // GET: Professor1PublicationLinkers/Delete/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -172,6 +178,7 @@ namespace Lab1.Controllers
         // POST: Professor1PublicationLinkers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var professorPublicationLinker = await _context.ProfessorPublicationLinker.FindAsync(id);

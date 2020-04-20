@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Lab1;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Lab1.Controllers
 {
@@ -56,6 +57,7 @@ namespace Lab1.Controllers
         }
 
         // GET: PublishingCollections/Create
+        [Authorize(Roles = "admin")]
         public IActionResult Create()
         {
             return View();
@@ -66,6 +68,7 @@ namespace Lab1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create([Bind("Id,PublishingName")] PublishingCollection publishingCollection)
         {
             if (ModelState.IsValid)
@@ -78,6 +81,7 @@ namespace Lab1.Controllers
         }
 
         // GET: PublishingCollections/Edit/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -98,6 +102,7 @@ namespace Lab1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,PublishingName")] PublishingCollection publishingCollection)
         {
             if (id != publishingCollection.Id)
@@ -129,6 +134,7 @@ namespace Lab1.Controllers
         }
 
         // GET: PublishingCollections/Delete/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -149,6 +155,7 @@ namespace Lab1.Controllers
         // POST: PublishingCollections/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var publishingCollection = await _context.PublishingCollection.FindAsync(id);

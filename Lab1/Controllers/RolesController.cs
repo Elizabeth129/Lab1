@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Lab1.Models;
 using Lab1.ViewModel;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Lab1.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class RolesController : Controller
     {
         RoleManager<IdentityRole> _roleManager;
